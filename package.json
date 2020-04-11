@@ -1,5 +1,5 @@
 {
-    "name": "jest-p2",
+    "name": "shapes",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -22,6 +22,5 @@
     },
     "dependencies": {
         "live-server": "^1.2.1"
-        "minimist": ">=1.2.3"
     }
 }

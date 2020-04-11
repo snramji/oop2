@@ -13,7 +13,15 @@ test('test plumbing', () => {
 });
 
 test('test Shape', () => {
-    const s = new shapes.Shape(1,2);
+    const s = new shapes.Shape('k', 1, 2);
+    expect(s.key).toBe('k');
+    expect(s.x).toBe(1);
+    expect(s.y).toBe(2);
+});
+
+test('test Shape', () => {
+    const s = new shapes.Rectangle('k', 1, 2);
+    expect(s.key).toBe('k');
     expect(s.x).toBe(1);
     expect(s.y).toBe(2);
 });
@@ -41,6 +49,8 @@ test('test Drawing', () => {
 
     const svg = panel.draw();
     expect(svg.children.length).toBe(2);
-
+    expect(svg.children[0].getAttribute("x")).toBe("101");
+    expect(svg.children[0].getAttribute("y")).toBe("102");
+    expect(svg.children[0].getAttribute("key")).toBe("k4");
 
 });

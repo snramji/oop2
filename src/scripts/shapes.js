@@ -3,7 +3,8 @@ function hello() {
 }
 
 class Shape {
-    constructor(x, y) {
+    constructor(key, x, y) {
+        this.key = key;
         this.x = x;
         this.y = y;
     }
@@ -18,6 +19,11 @@ class Rectangle extends Shape {
 
     getElement() {
         const rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
+        rect.setAttribute("x", this.x);
+        rect.setAttribute("y", this.y);
+        rect.setAttribute("width", "100");
+        rect.setAttribute("height", "50");
+        rect.setAttribute("key", this.key);
         return rect;
     }
 
@@ -40,7 +46,7 @@ class Drawing {
     }
     createRectangle(x, y) {
         const key = this.nextKey();
-        const rect = new Rectangle(x, y);
+        const rect = new Rectangle(key, x, y);
         this.shapes[key] = rect;
         return key;
     }
@@ -61,4 +67,4 @@ class Drawing {
 
 }
 
-export default {hello, Shape, Rectangle, Drawing};
+export default { hello, Shape, Rectangle, Drawing };
