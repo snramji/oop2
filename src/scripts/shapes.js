@@ -48,6 +48,11 @@ class Drawing {
         const key = this.nextKey();
         const rect = new Rectangle(key, x, y);
         this.shapes[key] = rect;
+        if(this.svg) {
+            const el = rect.getElement();
+            this.svg.append(el);
+        }
+
         return key;
     }
 
@@ -57,8 +62,12 @@ class Drawing {
 
     draw() {
         const svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+        svg.setAttribute("width", this.width);
+        svg.setAttribute("length", this.height);
+        this.svg = svg;
+        svg.setAttribute("class", "clBox");
         for (let key in this.shapes) {
-            console.log(key);
+            // console.log(key);
             const el = this.shapes[key].getElement();
             svg.append(el);
         }

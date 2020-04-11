@@ -3,17 +3,29 @@ import shapes from './shapes.js'
 // console.log("Hello World V1");
 
 const panel = new shapes.Drawing(401, 402);
-const k4 = panel.createRectangle(101, 102);
-const k5 = panel.createRectangle(201, 202);
-console.log(panel);
 const svg = panel.draw();
 console.log(svg);
-
 idDrawings.append(svg);
 
+
+
+// const k4 = panel.createRectangle(101, 102);
+// const k5 = panel.createRectangle(201, 202);
+// console.log(panel);
+
 document.body.addEventListener("click", e => {
+
+    const el = e.target;
+    const todo = el.getAttribute("todo");
+   
+    if(todo === "newRectangle") {
+        console.log(idx.value, idy.value);
+        const rect = panel.createRectangle(idx.value, idy.value);
+    }
+
+    // console.log(todo);
     
-    
+
     // console.log("you clicked at", e);
     // const el = e.target;
     // console.log(el);
@@ -28,6 +40,11 @@ document.body.addEventListener("click", e => {
 
     // idsvg.append(el);
 
+    if(todo === "show") {
+        // const svg = panel.draw();
+        // console.log(svg);
+        // idDrawings.append(svg);
+    }
 
 
 });

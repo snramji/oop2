@@ -49,8 +49,18 @@ test('test Drawing', () => {
 
     const svg = panel.draw();
     expect(svg.children.length).toBe(2);
+    expect(svg.getAttribute("width")).toBe("401");
+    expect(svg.getAttribute("length")).toBe("402");
+    // console.log(svg.children[0]);
+
     expect(svg.children[0].getAttribute("x")).toBe("101");
     expect(svg.children[0].getAttribute("y")).toBe("102");
     expect(svg.children[0].getAttribute("key")).toBe("k4");
+
+    panel.createRectangle(201, 202);
+    expect(svg.children.length).toBe(3);
+
+
+
 
 });

@@ -15,12 +15,23 @@
             stroke-width: 3;
             stroke: #2e309b;
         }
+        .clInput {
+            width: 50px;
+        }
 
     </style>
 </head>
 <body>
     <h1>Hello World V3</h1>
 
+    <button todo="newRectangle">Rectangle</button>
+    <button todo="newSquare">Square</button>
+    <button todo="newCircle">Circle</button>
+    x <input class="clInput" id="idx" type="number"/>
+    y <input class="clInput" id="idy" type="number"/>
+    <button todo="show">Show</button>
+    
+    
     <div id="idDrawings" class="clBox"></div>
 
     <svg id="idsvg" class="clBox" width="400" height="400">
